@@ -12,6 +12,10 @@ Now to include any gist template just add the following anywhere in your blog po
 
 Replace "GistID" with your gist id.
 
+Or if you want to embed a file from GitHub, you can do so with the [Gist-It](http://gist-it.appspot.com/). 
+Add the class "github" to you div and make the ID the Github file path.
+
+  <div class="gistLoad github" data-id="/moski/gist-Blogger/blob/master/public/gistBlogger.js">Loading ....</div>
 
 
 ## Development

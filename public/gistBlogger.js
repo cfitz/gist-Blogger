@@ -40,8 +40,13 @@
   }
 
   // Given the gist ID, generate the JS path.
-  function generatePath(id){
-    return "https://gist.github.com/" + id + ".js"
+  function generatePath(id, service ){
+    if (!!service) { 
+     var path = service + id
+   } else { 
+    var path = "https://gist.github.com/" + id + ".js"
+  }
+    return path
   }
 
 
@@ -49,7 +54,11 @@
   // load the next "script" and invoke callback when done
   function loadScript(currentScript, yieldDone){
     var id   = currentScript.data('id');
-    var path = generatePath(id)
+    if ( currentScript.hasClass("github")) {
+      var path = generatePath(id, "https://gist-it.appspot.com/github")
+    } else {
+      var path = generatePath(id)
+    }
     LOG && console.log("loadScript() id =" + id + "  path=" + path);
 
     var el;
